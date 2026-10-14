@@ -12,7 +12,7 @@ Requisitos: Claude Code (desktop ou CLI), Node.js e ffmpeg no PATH. Para a skill
 servidor MCP `premiere-pro` e o painel **MCP Bridge** no Premiere (Window > Extensions > MCP Bridge).
 
 ```bash
-git clone https://github.com/agenciafemo/femo-claude-skills.git
+git clone https://github.com/agenciafemo/PrimeiroCorteLegendaAudio.git
 ```
 
 Copie a pasta da skill para o diretório de skills do usuário:
@@ -21,7 +21,7 @@ Copie a pasta da skill para o diretório de skills do usuário:
 - macOS/Linux: `~/.claude/skills/`
 
 ```bash
-cp -r femo-claude-skills/skills/premiere-corte-legenda-audio ~/.claude/skills/
+cp -r PrimeiroCorteLegendaAudio/skills/premiere-corte-legenda-audio ~/.claude/skills/
 ```
 
 Abra uma nova conversa no Claude Code. A skill aparece na lista e entra em ação sozinha quando você
