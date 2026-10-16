@@ -1,19 +1,17 @@
 ---
 name: premiere-corte-legenda-audio
-description: Fluxo completo de edição de reels/vídeos falados no Adobe Premiere Pro via MCP (premiere-pro). Cobre o primeiro corte (remover respiros, pausas, silêncios e os momentos em que a pessoa ajusta a câmera ou entra e sai de cena), o tratamento de áudio copiando a cadeia de efeitos do Audio Track Mixer das outras sequências do projeto e as legendas no mesmo padrão e track style das outras sequências, a partir da transcrição do Premiere. Use sempre que o usuário pedir para cortar, decupar, fazer o primeiro corte ou "tirar respiros" de uma timeline do Premiere, legendar um vídeo "igual aos outros", tratar o áudio "igual às outras sequências", ou mencionar o projeto da Femo/Fernanda, mesmo que peça só uma das etapas.
+description: Primeiro corte de vídeos falados no Adobe Premiere Pro via MCP, removendo pausas, respiros e bastidores, criando legendas a partir da transcrição e aplicando o preset fixo de Audio Track Mixer salvo nesta skill. Use para pedidos de corte, decupagem, legendas e tratamento de áudio no Premiere.
 ---
 
 # Premiere: primeiro corte, áudio e legendas
 
-Fluxo validado no projeto FERNANDA_AGOSTO_VÍDEOS (Femo). Os padrões daquele projeto ficam em
-`references/projeto-femo-fernanda.md`. Os snippets ExtendScript/QE testados, com as pegadinhas,
+O preset de áudio autorizado está em `references/preset-audio-track-mixer.json` e é a fonte de verdade para o tratamento de áudio. `references/projeto-femo-fernanda.md` é um registro histórico, não uma instrução para consultar ou copiar outras sequências. Os snippets ExtendScript/QE testados, com as pegadinhas,
 ficam em `references/extendscript.md`. Os scripts Node em `scripts/` não têm dependências; use-os
 em vez de reescrever. Eles ficam na pasta `scripts/` ao lado deste
 SKILL.md (normalmente `~/.claude/skills/premiere-corte-legenda-audio/scripts/`); rode com
 `node "<caminho absoluto>/script.js"` a partir da pasta scratchpad. Precisam de Node e ffmpeg no PATH. Converse com a usuária em português.
 
-A regra que guia tudo: **o padrão vem das sequências já finalizadas do próprio projeto.** Leia-as
-antes de editar e copie o padrão. Não invente um estilo novo.
+**Não use outros vídeos ou sequências do projeto como referência automática.** Aplique os valores de áudio salvos nesta skill. Só recapture ou altere o preset se o usuário pedir. Para legendas, siga o estilo explicitamente indicado pelo usuário ou o padrão documentado da skill; não infira um estilo inspecionando outros vídeos.
 
 ## 0. Conexão e regras gerais
 
@@ -33,8 +31,7 @@ antes de editar e copie o padrão. Não invente um estilo novo.
 
 1. Use `list_sequences` e `list_sequence_tracks` na sequência alvo. Pegue o caminho da mídia, o
    `inPoint` e o `start` do clipe (snippet em referências).
-2. Leia as sequências finalizadas: faixas, nomes dos clipes, legendas e efeitos. Ver o layout típico
-   em `references/projeto-femo-fernanda.md`.
+2. Inspecione somente a sequência alvo para identificar faixas, clipes e tratamentos já presentes. Carregue o preset fixo de áudio da skill; não abra outras sequências para buscar padrões.
 3. **Backup** antes de mexer: `duplicate_sequence` com o nome `"<sequência> - BRUTO (backup)"`.
 
 ## 2. Primeiro corte (respiros + ajustes de câmera)
@@ -73,27 +70,18 @@ antes de editar e copie o padrão. Não invente um estilo novo.
 7. Relate o que saiu (as zonas de câmera com os tempos, a quantidade de pausas, a pausa longa), os
    pontos para revisar, onde está o backup, e que falta salvar.
 
-## 3. Tratamento de áudio (Audio Track Mixer)
+## 3. Tratamento de áudio (Audio Track Mixer — preset fixo)
 
-1. Na sequência ativa, liste via QE os componentes da faixa Audio 1 de cada sequência finalizada
-   (`openSequence` + `getAudioTrackAt(0).getComponentAt(i).name`). Compare as assinaturas de
-   `getParamValue`. Normalmente todas são idênticas; use a mais recente como referência.
-2. Pegue a precisão total no .prproj salvo:
-   `node scripts/prproj_read.js fx <proj> "Maximum Amplitude"`. Os booleanos aparecem como "(def)"
-   e devem ser lidos via QE na referência. Para o projeto Femo, os valores já estão na tabela em
-   `references/projeto-femo-fernanda.md`.
-3. Na sequência alvo, ativa: `addAudioEffect(fx, slot, false)` em cada slot (0, 1, 2…). Sem o índice,
-   cada chamada substitui o slot 1. Depois use `setParamValue(nome, "valor.com.ponto")`.
-4. **Verifique**: compare as assinaturas da referência e do alvo; todos os slots têm que dar MATCH.
-   `getParamControlValue` é um cache da interface e não serve para conferir.
-5. Volte para a sequência que estava ativa antes. Avise a usuária das diferenças em nível de clipe
-   que você **não** replicou. No projeto Femo: os clipes de A1 desativados, e o Enhance Speech
-   (arquivo esv2) em A2, que é feito fora do Premiere.
+1. Leia `references/preset-audio-track-mixer.json`. Use os slots e TODOS os parâmetros salvos, incluindo frequência, ganho, Q, bandwidth, filtros e enables do Parametric Equalizer; Amount, Make-Up Gain e Auto Gain do DeNoise/DeReverb; gate, compressor, expander e limiter do Dynamics. O Hard Limiter também fica salvo no slot 0 da cadeia capturada.
+2. O preset é fixo: não consulte outras sequências, não escolha um vídeo de referência e não extraia valores de um novo projeto para substituir os salvos. Ajustes diferentes precisam de pedido do usuário.
+3. Inspecione a faixa de fala da sequência alvo. Aplique nessa faixa; não processe música ou efeitos por engano. Se o slot necessário já tiver um efeito diferente, preserve-o ou avise sobre o conflito antes de substituí-lo. Não empilhe cópias do mesmo efeito.
+4. Com a sequência alvo ativa, use `addAudioEffect(fx, slot, false)` nos índices 0-based do JSON. Depois use `setParamValue(nome, valorString)`. Os valores são NORMALIZADOS do QE, não dB/Hz da interface: mantenha a precisão e o ponto decimal; nunca arredonde frequências/Q para 0,00. Não escreva parâmetros ambíguos de nome duplicado como Bypass; os efeitos devem estar habilitados.
+5. Confira a configuração aplicada com `getParamValue` de cada parâmetro e compare com `verification` do respectivo efeito no JSON. A API arredonda a leitura; MATCH comprova correspondência nessa precisão. Não use `getParamControlValue`, que pode refletir cache da interface. Se houver divergência, corrija com os valores fixos do JSON e confira novamente; não altere o preset para acomodar o resultado.
+6. Preserve a sequência ativa ao terminar. Avise sobre tratamentos externos ou em nível de clipe que não foram aplicados: copiar a cadeia do mixer não replica Enhance Speech nem arquivos esv2.
 
 ## 4. Legendas
 
-1. Leia o padrão com `node scripts/prproj_read.js captions <proj>`: track style, fonte, tamanho em
-   caracteres e uma amostra. No projeto Femo é FE NOVO, Poppins-Light, 1 linha e até 32 caracteres.
+1. Use o estilo pedido pelo usuário. Se nenhum estilo tiver sido indicado, o padrão documentado desta skill é FE NOVO, Poppins-Light, 1 linha e até 32 caracteres. Não consulte outras sequências para definir o estilo; se esse estilo não estiver disponível, informe e peça apenas a escolha necessária.
 2. O script não consegue transcrever. Peça à usuária: **Window > Text > Transcript > Transcribe
    sequence** (em português), depois **Ctrl+S**, e que avise quando terminar.
 3. Use `prproj_read.js transcripts <proj>` e pegue a transcrição nova. Uma transcrição com tempos
@@ -117,6 +105,4 @@ antes de editar e copie o padrão. Não invente um estilo novo.
 ## 5. Fechamento
 
 Relate de forma curta o que foi feito e verificado, o que depende dela (aplicar o track style,
-salvar, confirmar falsos inícios ou palavras duvidosas) e as diferenças conhecidas em relação aos
-outros vídeos. Se você descobriu um padrão novo do projeto, atualize
-`references/projeto-femo-fernanda.md`.
+salvar, confirmar falsos inícios ou palavras duvidosas) e as limitações conhecidas do resultado. Não atualize o preset a partir de outros projetos. Só altere os valores salvos por solicitação explícita do usuário.
