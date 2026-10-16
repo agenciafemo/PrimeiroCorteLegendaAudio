@@ -1,0 +1,702 @@
+{
+  "name": "femo-audio-track-mixer",
+  "version": 1,
+  "captured_on": "2026-10-16",
+  "value_format": "Premiere QE normalized 0..1; strings with decimal point, not UI units",
+  "source": "Audio 1 — GUSTAVO CUNHA - ROTEIRO 13 - CORTE MCP; numeric precision from saved project and values explicitly applied in this session; enables verified using live QE",
+  "effects": [
+    {
+      "slot": 0,
+      "name": "Hard Limiter",
+      "enabled": true,
+      "params": [
+        {
+          "name": "Maximum Amplitude",
+          "value": "0.93999999761581421"
+        },
+        {
+          "name": "Input Boost",
+          "value": "0.66666698455810547"
+        },
+        {
+          "name": "Look-Ahead Time",
+          "value": "0.13333301246166229"
+        },
+        {
+          "name": "Release Time",
+          "value": "0.375"
+        },
+        {
+          "name": "Link Channels",
+          "value": "1.00"
+        },
+        {
+          "name": "Decay to Ceiling",
+          "value": "1.00"
+        },
+        {
+          "name": "Limit True Peak",
+          "value": "0"
+        }
+      ],
+      "verification": [
+        {
+          "name": "Bypass",
+          "value": "false"
+        },
+        {
+          "name": "Maximum Amplitude",
+          "value": "0,94"
+        },
+        {
+          "name": "Input Boost",
+          "value": "0,67"
+        },
+        {
+          "name": "Look-Ahead Time",
+          "value": "0,13"
+        },
+        {
+          "name": "Release Time",
+          "value": "0,38"
+        },
+        {
+          "name": "Link Channels",
+          "value": "1,00"
+        },
+        {
+          "name": "Decay to Ceiling",
+          "value": "1,00"
+        },
+        {
+          "name": "Limit True Peak",
+          "value": "0,00"
+        }
+      ]
+    },
+    {
+      "slot": 1,
+      "name": "Parametric Equalizer",
+      "enabled": true,
+      "params": [
+        {
+          "name": "Low Shelf Frequency",
+          "value": "0.00014712959819007665"
+        },
+        {
+          "name": "Low Shelf Gain",
+          "value": "0.35312500596046448"
+        },
+        {
+          "name": "High Shelf Frequency",
+          "value": "0.74979197978973389"
+        },
+        {
+          "name": "High Shelf Gain",
+          "value": "0.5"
+        },
+        {
+          "name": "EQ Band 1 Center Frequency",
+          "value": "0.0012510400265455246"
+        },
+        {
+          "name": "EQ Band 1 Q",
+          "value": "0.00019998999778181314"
+        },
+        {
+          "name": "EQ Band 1 Gain",
+          "value": "0.5"
+        },
+        {
+          "name": "EQ Band 1 Enable",
+          "value": "1.00"
+        },
+        {
+          "name": "EQ Band 2 Center Frequency",
+          "value": "0.011561249382793903"
+        },
+        {
+          "name": "EQ Band 2 Q",
+          "value": "0.00066999002592638135"
+        },
+        {
+          "name": "EQ Band 2 Gain",
+          "value": "0.41940793395042419"
+        },
+        {
+          "name": "EQ Band 2 Enable",
+          "value": "1.00"
+        },
+        {
+          "name": "EQ Band 3 Center Frequency",
+          "value": "0.038961220532655716"
+        },
+        {
+          "name": "EQ Band 3 Q",
+          "value": "0.00066999002592638135"
+        },
+        {
+          "name": "EQ Band 3 Gain",
+          "value": "0.43421053886413574"
+        },
+        {
+          "name": "EQ Band 3 Enable",
+          "value": "1.00"
+        },
+        {
+          "name": "EQ Band 4 Center Frequency",
+          "value": "0.094068825244903564"
+        },
+        {
+          "name": "EQ Band 4 Q",
+          "value": "0.00082999002188444138"
+        },
+        {
+          "name": "EQ Band 4 Gain",
+          "value": "0.40296053886413574"
+        },
+        {
+          "name": "EQ Band 4 Enable",
+          "value": "1.00"
+        },
+        {
+          "name": "EQ Band 5 Center Frequency",
+          "value": "0.53294402360916138"
+        },
+        {
+          "name": "EQ Band 5 Q",
+          "value": "0.00019998999778181314"
+        },
+        {
+          "name": "EQ Band 5 Gain",
+          "value": "0.5"
+        },
+        {
+          "name": "EQ Band 5 Enable",
+          "value": "1.00"
+        },
+        {
+          "name": "Gain",
+          "value": "0.66666698455810547"
+        },
+        {
+          "name": "ConstantQ",
+          "value": "1.00"
+        },
+        {
+          "name": "Low Shelf Filter Order",
+          "value": "0"
+        },
+        {
+          "name": "High Shelf Filter Order",
+          "value": "0"
+        },
+        {
+          "name": "Ultra-Quiet Mode",
+          "value": "0"
+        },
+        {
+          "name": "Low Shelf Enable",
+          "value": "1.00"
+        },
+        {
+          "name": "High Shelf Enable",
+          "value": "1.00"
+        },
+        {
+          "name": "Original Sample Rate",
+          "value": "0.25"
+        },
+        {
+          "name": "EQ Band 1 Bandwidth",
+          "value": "0.0024999871384352446"
+        },
+        {
+          "name": "EQ Band 2 Bandwidth",
+          "value": "0.0044363895431160927"
+        },
+        {
+          "name": "EQ Band 3 Bandwidth",
+          "value": "0.01424312312155962"
+        },
+        {
+          "name": "EQ Band 4 Bandwidth",
+          "value": "0.027418911457061768"
+        },
+        {
+          "name": "EQ Band 5 Bandwidth",
+          "value": "0.63999992609024048"
+        },
+        {
+          "name": "High-Pass Filter Enable",
+          "value": "1"
+        },
+        {
+          "name": "High-Pass Cutoff Frequency",
+          "value": "0.00083402806194499135"
+        },
+        {
+          "name": "High-Pass Slope",
+          "value": "0.40000000596046448"
+        },
+        {
+          "name": "Low-Pass Filter Enable",
+          "value": "1"
+        },
+        {
+          "name": "Low-Pass Cutoff Frequency",
+          "value": "0.74979197978973389"
+        },
+        {
+          "name": "Low-Pass Slope",
+          "value": "0.40000000596046448"
+        },
+        {
+          "name": "LowGraphRange",
+          "value": "1"
+        }
+      ],
+      "verification": [
+        {
+          "name": "Bypass",
+          "value": "false"
+        },
+        {
+          "name": "Low Shelf Frequency",
+          "value": "0,00"
+        },
+        {
+          "name": "Low Shelf Gain",
+          "value": "0,35"
+        },
+        {
+          "name": "High Shelf Frequency",
+          "value": "0,75"
+        },
+        {
+          "name": "High Shelf Gain",
+          "value": "0,50"
+        },
+        {
+          "name": "EQ Band 1 Center Frequency",
+          "value": "0,00"
+        },
+        {
+          "name": "EQ Band 1 Q",
+          "value": "0,00"
+        },
+        {
+          "name": "EQ Band 1 Gain",
+          "value": "0,50"
+        },
+        {
+          "name": "EQ Band 1 Enable",
+          "value": "1,00"
+        },
+        {
+          "name": "EQ Band 2 Center Frequency",
+          "value": "0,01"
+        },
+        {
+          "name": "EQ Band 2 Q",
+          "value": "0,00"
+        },
+        {
+          "name": "EQ Band 2 Gain",
+          "value": "0,42"
+        },
+        {
+          "name": "EQ Band 2 Enable",
+          "value": "1,00"
+        },
+        {
+          "name": "EQ Band 3 Center Frequency",
+          "value": "0,04"
+        },
+        {
+          "name": "EQ Band 3 Q",
+          "value": "0,00"
+        },
+        {
+          "name": "EQ Band 3 Gain",
+          "value": "0,43"
+        },
+        {
+          "name": "EQ Band 3 Enable",
+          "value": "1,00"
+        },
+        {
+          "name": "EQ Band 4 Center Frequency",
+          "value": "0,09"
+        },
+        {
+          "name": "EQ Band 4 Q",
+          "value": "0,00"
+        },
+        {
+          "name": "EQ Band 4 Gain",
+          "value": "0,40"
+        },
+        {
+          "name": "EQ Band 4 Enable",
+          "value": "1,00"
+        },
+        {
+          "name": "EQ Band 5 Center Frequency",
+          "value": "0,53"
+        },
+        {
+          "name": "EQ Band 5 Q",
+          "value": "0,00"
+        },
+        {
+          "name": "EQ Band 5 Gain",
+          "value": "0,50"
+        },
+        {
+          "name": "EQ Band 5 Enable",
+          "value": "1,00"
+        },
+        {
+          "name": "Gain",
+          "value": "0,67"
+        },
+        {
+          "name": "ConstantQ",
+          "value": "1,00"
+        },
+        {
+          "name": "Low Shelf Filter Order",
+          "value": "0,00"
+        },
+        {
+          "name": "High Shelf Filter Order",
+          "value": "0,00"
+        },
+        {
+          "name": "Ultra-Quiet Mode",
+          "value": "0,00"
+        },
+        {
+          "name": "Low Shelf Enable",
+          "value": "1,00"
+        },
+        {
+          "name": "High Shelf Enable",
+          "value": "1,00"
+        },
+        {
+          "name": "Original Sample Rate",
+          "value": "0,25"
+        },
+        {
+          "name": "EQ Band 1 Bandwidth",
+          "value": "0,00"
+        },
+        {
+          "name": "EQ Band 2 Bandwidth",
+          "value": "0,00"
+        },
+        {
+          "name": "EQ Band 3 Bandwidth",
+          "value": "0,01"
+        },
+        {
+          "name": "EQ Band 4 Bandwidth",
+          "value": "0,03"
+        },
+        {
+          "name": "EQ Band 5 Bandwidth",
+          "value": "0,64"
+        },
+        {
+          "name": "High-Pass Filter Enable",
+          "value": "1,00"
+        },
+        {
+          "name": "High-Pass Cutoff Frequency",
+          "value": "0,00"
+        },
+        {
+          "name": "High-Pass Slope",
+          "value": "0,40"
+        },
+        {
+          "name": "Low-Pass Filter Enable",
+          "value": "1,00"
+        },
+        {
+          "name": "Low-Pass Cutoff Frequency",
+          "value": "0,75"
+        },
+        {
+          "name": "Low-Pass Slope",
+          "value": "0,40"
+        },
+        {
+          "name": "Bypass",
+          "value": "false"
+        },
+        {
+          "name": "LowGraphRange",
+          "value": "1,00"
+        }
+      ]
+    },
+    {
+      "slot": 2,
+      "name": "DeNoise",
+      "enabled": true,
+      "params": [
+        {
+          "name": "Amount",
+          "value": "0.16806723177433014"
+        },
+        {
+          "name": "Make-Up Gain",
+          "value": "0"
+        },
+        {
+          "name": "Auto Gain",
+          "value": "0"
+        },
+        {
+          "name": "Shelve Type",
+          "value": "0"
+        },
+        {
+          "name": "Output Difference Signal",
+          "value": "0"
+        }
+      ],
+      "verification": [
+        {
+          "name": "Bypass",
+          "value": "false"
+        },
+        {
+          "name": "Amount",
+          "value": "0,17"
+        },
+        {
+          "name": "Make-Up Gain",
+          "value": "0,00"
+        },
+        {
+          "name": "Auto Gain",
+          "value": "0,00"
+        },
+        {
+          "name": "Shelve Type",
+          "value": "0,00"
+        },
+        {
+          "name": "Output Difference Signal",
+          "value": "0,00"
+        }
+      ]
+    },
+    {
+      "slot": 3,
+      "name": "DeReverb",
+      "enabled": true,
+      "params": [
+        {
+          "name": "Amount",
+          "value": "0.08403361588716507"
+        },
+        {
+          "name": "Make-Up Gain",
+          "value": "0.13305336236953735"
+        },
+        {
+          "name": "Auto Gain",
+          "value": "1.00"
+        },
+        {
+          "name": "Shelve Type",
+          "value": "0"
+        },
+        {
+          "name": "Output Difference Signal",
+          "value": "0"
+        }
+      ],
+      "verification": [
+        {
+          "name": "Bypass",
+          "value": "false"
+        },
+        {
+          "name": "Amount",
+          "value": "0,08"
+        },
+        {
+          "name": "Make-Up Gain",
+          "value": "0,13"
+        },
+        {
+          "name": "Auto Gain",
+          "value": "1,00"
+        },
+        {
+          "name": "Shelve Type",
+          "value": "0,00"
+        },
+        {
+          "name": "Output Difference Signal",
+          "value": "0,00"
+        }
+      ]
+    },
+    {
+      "slot": 4,
+      "name": "Dynamics",
+      "enabled": true,
+      "params": [
+        {
+          "name": "AutoGate Enabled",
+          "value": "0"
+        },
+        {
+          "name": "AutoGate Threshold",
+          "value": "0.66666668653488159"
+        },
+        {
+          "name": "AutoGate Attack",
+          "value": "0.090909093618392944"
+        },
+        {
+          "name": "AutoGate Release",
+          "value": "0.1111111119389534"
+        },
+        {
+          "name": "AutoGate Hold",
+          "value": "0.0090090082958340645"
+        },
+        {
+          "name": "Compressor Enabled",
+          "value": "1.00"
+        },
+        {
+          "name": "Compressor Threshold",
+          "value": "0.65666669607162476"
+        },
+        {
+          "name": "Compressor Ratio",
+          "value": "0.57142859697341919"
+        },
+        {
+          "name": "Compressor Attack",
+          "value": "0.090909093618392944"
+        },
+        {
+          "name": "Compressor Release",
+          "value": "0.39265304803848267"
+        },
+        {
+          "name": "Compressor MakeUp Gain",
+          "value": "0.22083334624767303"
+        },
+        {
+          "name": "Expander Enabled",
+          "value": "0"
+        },
+        {
+          "name": "Expander Threshold",
+          "value": "0.66666668653488159"
+        },
+        {
+          "name": "Expander Ratio",
+          "value": "0"
+        },
+        {
+          "name": "Limiter Enabled",
+          "value": "0"
+        },
+        {
+          "name": "Limiter Threshold",
+          "value": "0.98333334922790527"
+        },
+        {
+          "name": "Limiter Release",
+          "value": "0.081632651388645172"
+        }
+      ],
+      "verification": [
+        {
+          "name": "Bypass",
+          "value": "false"
+        },
+        {
+          "name": "AutoGate Enabled",
+          "value": "0,00"
+        },
+        {
+          "name": "AutoGate Threshold",
+          "value": "0,67"
+        },
+        {
+          "name": "AutoGate Attack",
+          "value": "0,09"
+        },
+        {
+          "name": "AutoGate Release",
+          "value": "0,11"
+        },
+        {
+          "name": "AutoGate Hold",
+          "value": "0,01"
+        },
+        {
+          "name": "Compressor Enabled",
+          "value": "1,00"
+        },
+        {
+          "name": "Compressor Threshold",
+          "value": "0,66"
+        },
+        {
+          "name": "Compressor Ratio",
+          "value": "0,57"
+        },
+        {
+          "name": "Compressor Attack",
+          "value": "0,09"
+        },
+        {
+          "name": "Compressor Release",
+          "value": "0,39"
+        },
+        {
+          "name": "Compressor MakeUp Gain",
+          "value": "0,22"
+        },
+        {
+          "name": "Expander Enabled",
+          "value": "0,00"
+        },
+        {
+          "name": "Expander Threshold",
+          "value": "0,67"
+        },
+        {
+          "name": "Expander Ratio",
+          "value": "0,00"
+        },
+        {
+          "name": "Limiter Enabled",
+          "value": "0,00"
+        },
+        {
+          "name": "Limiter Threshold",
+          "value": "0,98"
+        },
+        {
+          "name": "Limiter Release",
+          "value": "0,08"
+        }
+      ]
+    }
+  ]
+}
